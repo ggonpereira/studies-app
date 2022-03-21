@@ -21,6 +21,10 @@ export const GlobalStyle = createGlobalStyle`
     font: 400 1rem "Roboto", sans-serif;
   }
 
+  body {
+    background-color: ${(props) => props.theme.colors.background};
+  }
+
   #root {
     margin: 0 auto;
   }

@@ -5,14 +5,14 @@ export const ButtonStyled = styled.button`
   max-width: 200px;
   width: 100%;
   border-radius: 7px;
-  background-color: #9ae760;
+  background-color: ${(props) => props.theme.colors.primary};
   border: 0;
   cursor: pointer;
   height: 42px;
   font-size: 1.2em;
   font-weight: 600;
   text-transform: uppercase;
-  color: #353332;
+  color: #303332;
   margin: 0 auto;
   transition: 0.3s all;
   border-bottom: 3px solid #7cc247;

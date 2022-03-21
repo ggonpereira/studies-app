@@ -4,7 +4,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   flex: 3;
-  background-color: #d6d6d6;
+  background-color: ${(props) => props.theme.colors.secondary};
   padding: 15px;
   border-radius: 7px;
   box-shadow: 3px 3px 8px 0px rgba(87, 87, 87, 0.171);

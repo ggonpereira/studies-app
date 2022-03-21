@@ -27,5 +27,5 @@ export const Input = styled.input`
   font-size: 1.2em;
   border: 2px solid #e0e0e0;
   border-radius: 5px;
-  color: #303332;
+  color: ${(props) => props.theme.colors.text};
 `;

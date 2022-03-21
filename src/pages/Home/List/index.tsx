@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Typography } from '../../../components/Typography/styles';
 import tasks from './constants/tasks';
 import { Tasks } from '../../../types/Tasks';
 
-import { ListStyled, Menu, Item, ItemTitle } from './styles';
-import CheckMark from '../../../assets/check-mark.svg';
+import { ListStyled, Menu } from './styles';
+import ListItem from './Item';
 
 const List = () => {
   const [currentTask, setCurrentTask] = useState<Tasks | null>(() => {
@@ -25,16 +25,12 @@ const List = () => {
       </Typography>
       <Menu>
         {tasks.map((task, index) => (
-          <Item
-            active={task.title === currentTask?.title}
-            onClick={() => handleChangeTask(task)}
-            key={`${task.title}${index}`}>
-            <div>
-              <ItemTitle as="h3">{task.title}</ItemTitle>
-              <span>{task.time}</span>
-            </div>
-            {task.title === currentTask?.title && <img src={CheckMark} />}
-          </Item>
+          <ListItem
+            key={`${task.title}${index}`}
+            currentTask={currentTask}
+            handleChangeTask={handleChangeTask}
+            {...task}
+          />
         ))}
       </Menu>
     </ListStyled>

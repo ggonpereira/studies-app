@@ -35,7 +35,7 @@ const AddStudy = () => {
         </div>
       </Container>
 
-      <Button />
+      <Button>Add New</Button>
     </Form>
   );
 };
