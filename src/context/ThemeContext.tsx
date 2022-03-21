@@ -16,7 +16,7 @@ type Props = {
 
 export default function ThemeContextProvider({ children }: Props) {
   const [theme, setTheme] = useState<string>(() => {
-    const storageValueTheme = localStorage.getItem('@studiesApp:theme');
+    const storageValueTheme = localStorage.getItem('@studiesApp:Theme');
 
     if (storageValueTheme) {
       return JSON.parse(storageValueTheme);
@@ -38,7 +38,7 @@ export default function ThemeContextProvider({ children }: Props) {
   }
 
   useEffect(() => {
-    localStorage.setItem('@studiesApp:theme', JSON.stringify(theme));
+    localStorage.setItem('@studiesApp:Theme', JSON.stringify(theme));
   }, [theme]);
 
   return (

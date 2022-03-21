@@ -9,10 +9,14 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <Typography color="#303332">Studies App</Typography>
-      <ToggleTheme type="button" onClick={onToggleTheme}>
-        {selectedTheme === 'dark' ? '🌞' : '🌚'}
-      </ToggleTheme>
+      <div>
+        <Typography color="#303332" noMargin>
+          Studies App
+        </Typography>
+        <ToggleTheme type="button" onClick={onToggleTheme}>
+          {selectedTheme === 'dark' ? '🌞' : '🌚'}
+        </ToggleTheme>
+      </div>
     </Container>
   );
 };

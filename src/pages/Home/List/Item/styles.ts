@@ -11,11 +11,11 @@ export const Item = styled.li<{ active: boolean }>`
   cursor: pointer;
   background-color: ${(props) =>
     props.active ? props.theme.colors.primary : props.theme.colors.secondary};
-  color: ${(props) => props.theme.colors.text};
+  color: ${(props) => (props.active ? props.theme.colors.background : props.theme.colors.text)};
   box-shadow: 3px 3px 8px 0px rgba(87, 87, 87, 0.171);
 
   div span {
-    opacity: 0.6;
+    opacity: 0.7;
     font-size: 0.95em;
   }
 
@@ -27,5 +27,4 @@ export const Item = styled.li<{ active: boolean }>`
 
 export const ItemTitle = styled.h3`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.text};
 `;

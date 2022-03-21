@@ -4,8 +4,13 @@ import { Typography } from '../../../components/Typography/styles';
 import { Form, Container, Input } from './styles';
 
 const AddStudy = () => {
+  const handleSubmit = (values: React.FormEvent) => {
+    values.preventDefault();
+    console.info(values);
+  };
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Container>
         <div>
           <label htmlFor="task">
