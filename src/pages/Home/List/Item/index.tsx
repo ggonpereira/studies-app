@@ -29,13 +29,13 @@ const ListItem = ({
   };
 
   return (
-    <Item active={title === currentStudy?.title} onClick={() => handleChangeStudy(task)}>
+    <Item active={id === currentStudy?.id} onClick={() => handleChangeStudy(task)}>
       <div>
         <ItemTitle as="h3">{title}</ItemTitle>
         <span>{time}</span>
       </div>
       <div className="icons">
-        {title === currentStudy?.title && <img src={CheckMarkIcon} />}
+        {id === currentStudy?.id && <img src={CheckMarkIcon} />}
         <img
           src={DeleteIcon}
           onClick={(e: React.FormEvent) => {

@@ -27,7 +27,6 @@ export const Container = styled.div`
 
     main {
       flex: none;
-      flex-direction: row;
     }
   }
 `;

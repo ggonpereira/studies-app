@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import List from './List';
 import AddStudy from './AddStudy';
-// import StartStudy from './StartStudy';
+import StartStudy from './StartStudy';
 
 import { Container } from './styles';
 
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
       <List studies={studies} setStudies={setStudies} />
       <main>
         <AddStudy addNewStudy={setStudies} />
-        {/* <StartStudy /> */}
+        <StartStudy />
       </main>
     </Container>
   );

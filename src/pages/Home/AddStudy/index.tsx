@@ -58,7 +58,7 @@ const AddStudy = ({ addNewStudy }: Props) => {
             {...register('time')}
             id="time"
             min="00:00:00"
-            max="01:30:00"
+            max="99:59:59"
             required
           />
         </div>
