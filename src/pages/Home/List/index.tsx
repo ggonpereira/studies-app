@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Typography } from '../../../components/Typography/styles';
 import { Studies } from '../../../types/Studies';
 
@@ -12,14 +12,32 @@ interface Props {
 
 const List = ({ studies, setStudies }: Props) => {
   const [currentStudy, setCurrentStudy] = useState<Studies | null>(() => {
-    const storedStudy = localStorage.getItem('@studiesApp:CurrentStudy');
-    if (storedStudy) return JSON.parse(storedStudy);
+    const storedStudy = localStorage.getItem('@studiesApp:Studies');
+    if (storedStudy) {
+      const parsedStoredValue: Studies[] = JSON.parse(storedStudy);
+      const activeStudy = parsedStoredValue.find((study) => study.isCurrentStudy);
+      if (activeStudy) return activeStudy || null;
+    }
     return null;
   });
 
+  useEffect(() => {
+    const activeStudy = studies.find((study) => study.isCurrentStudy);
+    setCurrentStudy(activeStudy || null);
+  }, [studies]);
+
   const handleChangeStudy = (task: Studies) => {
-    setCurrentStudy(task);
-    localStorage.setItem('@studiesApp:CurrentStudy', JSON.stringify(task));
+    const storedStudy = localStorage.getItem('@studiesApp:Studies');
+    if (storedStudy) {
+      const parsedStoredValue: Studies[] = JSON.parse(storedStudy);
+
+      parsedStoredValue.map((value) => {
+        if (value.isCurrentStudy) value.isCurrentStudy = false;
+        if (value.id === task.id) value.isCurrentStudy = true;
+      });
+
+      setStudies(parsedStoredValue);
+    }
   };
 
   const handleDeleteStudy = (task: Studies) => {

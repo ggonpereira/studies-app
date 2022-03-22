@@ -5,10 +5,7 @@ import DeleteIcon from '../../../../assets/trash-can.svg';
 import { Studies } from '../../../../types/Studies';
 import React from 'react';
 
-interface Props {
-  id: string;
-  title: string;
-  time: string;
+interface Props extends Studies {
   currentStudy: Studies | null;
   handleChangeStudy: (task: Studies) => void;
   handleDeleteStudy: (task: Studies) => void;
@@ -18,6 +15,7 @@ const ListItem = ({
   id,
   title,
   time,
+  isCurrentStudy,
   currentStudy,
   handleChangeStudy,
   handleDeleteStudy
@@ -25,7 +23,8 @@ const ListItem = ({
   const task: Studies = {
     id,
     title,
-    time
+    time,
+    isCurrentStudy
   };
 
   return (

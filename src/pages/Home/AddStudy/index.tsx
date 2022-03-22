@@ -17,10 +17,11 @@ const AddStudy = ({ addNewStudy }: Props) => {
   const onSubmit = (data: Studies) => {
     if (data) {
       const storedStudies = localStorage.getItem('@studiesApp:Studies');
-      const newStudy = {
+      const newStudy: Studies = {
         id: String(Math.random()).split('.')[1],
         title: data.title,
-        time: data.time
+        time: data.time,
+        isCurrentStudy: false
       };
 
       if (storedStudies) {
