@@ -64,7 +64,7 @@ const AddStudy = ({ addNewStudy }: Props) => {
             {...register('time')}
             id="time"
             min="00:00:01"
-            max="01:59:00"
+            max="01:30:00"
             required
             className={selectedTheme === 'dark' ? 'darkTheme' : undefined}
           />
