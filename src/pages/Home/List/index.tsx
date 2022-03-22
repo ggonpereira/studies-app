@@ -20,6 +20,10 @@ const List = ({ studies, setStudies }: Props) => {
   }, [studies]);
 
   const handleChangeStudy = (task: Studies) => {
+    if (task.isConcluded) {
+      return alert(`The task "${task.title}" was already concluded!`);
+    }
+
     const storedStudy = localStorage.getItem('@studiesApp:Studies');
     if (storedStudy) {
       const parsedStoredValue: Studies[] = JSON.parse(storedStudy);

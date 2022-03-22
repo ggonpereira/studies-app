@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Item = styled.li<{ active: boolean }>`
+export const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,10 +9,19 @@ export const Item = styled.li<{ active: boolean }>`
   padding: 7px 10px;
   border-radius: 7px;
   cursor: pointer;
-  background-color: ${(props) =>
-    props.active ? props.theme.colors.primary : props.theme.colors.secondary};
-  color: ${(props) => (props.active ? props.theme.colors.background : props.theme.colors.text)};
+  background-color: ${(props) => props.theme.colors.backgroundSecondary};
+  color: ${(props) => props.theme.colors.text};
   box-shadow: 3px 3px 8px 0px rgba(87, 87, 87, 0.171);
+
+  &.active {
+    background-color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.text};
+  }
+
+  &.concluded {
+    background-color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.background};
+  }
 
   div span {
     opacity: 0.7;

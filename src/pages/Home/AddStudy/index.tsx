@@ -21,7 +21,8 @@ const AddStudy = ({ addNewStudy }: Props) => {
         id: String(Math.random()).split('.')[1],
         title: data.title,
         time: data.time,
-        isCurrentStudy: false
+        isCurrentStudy: false,
+        isConcluded: false
       };
 
       if (storedStudies) {
@@ -62,7 +63,7 @@ const AddStudy = ({ addNewStudy }: Props) => {
             step="1"
             {...register('time')}
             id="time"
-            min="00:00:00"
+            min="00:00:01"
             max="01:59:00"
             required
             className={selectedTheme === 'dark' ? 'darkTheme' : undefined}
@@ -70,7 +71,7 @@ const AddStudy = ({ addNewStudy }: Props) => {
         </div>
       </Container>
 
-      <Button>Add New</Button>
+      <Button type="submit">Add New</Button>
     </Form>
   );
 };

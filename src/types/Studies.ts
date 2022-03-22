@@ -3,4 +3,5 @@ export interface Studies {
   title: string;
   time: string;
   isCurrentStudy: boolean;
+  isConcluded: boolean;
 }

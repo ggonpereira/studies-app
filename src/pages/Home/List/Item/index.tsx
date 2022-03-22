@@ -15,6 +15,7 @@ const ListItem = ({
   id,
   title,
   time,
+  isConcluded,
   isCurrentStudy,
   handleChangeStudy,
   handleDeleteStudy
@@ -25,17 +26,20 @@ const ListItem = ({
     id,
     title,
     time,
-    isCurrentStudy
+    isCurrentStudy,
+    isConcluded
   };
 
   return (
-    <Item active={id === currentStudy?.id} onClick={() => handleChangeStudy(task)}>
+    <Item
+      className={`${id === currentStudy?.id ? 'active' : ''} ${isConcluded ? 'concluded' : ''}`}
+      onClick={() => handleChangeStudy(task)}>
       <div>
         <ItemTitle as="h3">{title}</ItemTitle>
         <span>{time}</span>
       </div>
       <div className="icons">
-        {id === currentStudy?.id && <img src={CheckMarkIcon} />}
+        {isConcluded && <img src={CheckMarkIcon} />}
         <img
           src={DeleteIcon}
           onClick={(e: React.FormEvent) => {
