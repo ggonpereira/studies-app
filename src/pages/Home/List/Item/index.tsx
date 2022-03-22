@@ -3,10 +3,10 @@ import CheckMarkIcon from '../../../../assets/check-mark.svg';
 import DeleteIcon from '../../../../assets/trash-can.svg';
 
 import { Studies } from '../../../../types/Studies';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ApplicationContext } from '../../../../context/ApplicationContext';
 
 interface Props extends Studies {
-  currentStudy: Studies | null;
   handleChangeStudy: (task: Studies) => void;
   handleDeleteStudy: (task: Studies) => void;
 }
@@ -16,10 +16,11 @@ const ListItem = ({
   title,
   time,
   isCurrentStudy,
-  currentStudy,
   handleChangeStudy,
   handleDeleteStudy
 }: Props) => {
+  const { currentStudy } = useContext(ApplicationContext);
+
   const task: Studies = {
     id,
     title,

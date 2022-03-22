@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Typography } from '../../../components/Typography/styles';
 import { Studies } from '../../../types/Studies';
 
 import { ListStyled, Menu } from './styles';
 import ListItem from './Item';
+import { ApplicationContext } from '../../../context/ApplicationContext';
 
 interface Props {
   studies: Studies[];
@@ -11,15 +12,7 @@ interface Props {
 }
 
 const List = ({ studies, setStudies }: Props) => {
-  const [currentStudy, setCurrentStudy] = useState<Studies | null>(() => {
-    const storedStudy = localStorage.getItem('@studiesApp:Studies');
-    if (storedStudy) {
-      const parsedStoredValue: Studies[] = JSON.parse(storedStudy);
-      const activeStudy = parsedStoredValue.find((study) => study.isCurrentStudy);
-      if (activeStudy) return activeStudy || null;
-    }
-    return null;
-  });
+  const { setCurrentStudy } = useContext(ApplicationContext);
 
   useEffect(() => {
     const activeStudy = studies.find((study) => study.isCurrentStudy);
@@ -61,7 +54,6 @@ const List = ({ studies, setStudies }: Props) => {
             {studies.map((task, index) => (
               <ListItem
                 key={`${task.title}${index}`}
-                currentStudy={currentStudy}
                 handleChangeStudy={handleChangeStudy}
                 handleDeleteStudy={handleDeleteStudy}
                 {...task}
