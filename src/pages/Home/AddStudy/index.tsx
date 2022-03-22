@@ -11,10 +11,8 @@ interface Props {
 }
 
 const AddStudy = ({ addNewStudy }: Props) => {
-  const { register, handleSubmit } = useForm<Studies>();
+  const { register, handleSubmit, reset } = useForm<Studies>();
   const { selectedTheme } = useContext(ThemeContext);
-
-  console.info(selectedTheme);
 
   const onSubmit = (data: Studies) => {
     if (data) {
@@ -30,9 +28,11 @@ const AddStudy = ({ addNewStudy }: Props) => {
         parsedData.push(newStudy);
 
         addNewStudy(parsedData);
+        reset();
       } else {
         addNewStudy([newStudy]);
         localStorage.setItem('@studiesApp:Studies', JSON.stringify([newStudy]));
+        reset();
       }
     }
   };
@@ -62,7 +62,7 @@ const AddStudy = ({ addNewStudy }: Props) => {
             {...register('time')}
             id="time"
             min="00:00:00"
-            max="99:59:59"
+            max="01:59:00"
             required
             className={selectedTheme === 'dark' ? 'darkTheme' : undefined}
           />

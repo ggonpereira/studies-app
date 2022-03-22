@@ -3,7 +3,7 @@ import { Typography } from '../../../components/Typography/styles';
 import Clock from './Clock';
 import { Container } from './styles';
 
-const AddStudy = () => {
+const StartStudy = () => {
   return (
     <Container>
       <Typography>Choose a card and start the timer</Typography>
@@ -15,4 +15,4 @@ const AddStudy = () => {
   );
 };
 
-export default AddStudy;
+export default StartStudy;
