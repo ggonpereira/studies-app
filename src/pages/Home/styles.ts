@@ -24,6 +24,7 @@ export const Container = styled.div`
   @media screen and (max-width: 769px) {
     flex-direction: column;
     max-width: 480px;
+    margin-top: 60px;
 
     main {
       flex: none;

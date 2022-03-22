@@ -13,6 +13,7 @@ interface Props {
 const StartStudy = ({ endTask }: Props) => {
   const { currentStudy } = useContext(ApplicationContext);
 
+  const [timerRunning, setTimerRunning] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
 
   useEffect(() => {
@@ -23,11 +24,17 @@ const StartStudy = ({ endTask }: Props) => {
   }, [currentStudy]);
 
   const handleChangeTime = (counter = 0) => {
+    if (timerRunning) return;
+
+    setTimerRunning(true);
+
     setTimeout(() => {
       if (counter > 0) {
         setTime(counter - 1);
         return handleChangeTime(counter - 1);
       }
+
+      setTimerRunning(false);
       endTask();
     }, 1000);
   };
