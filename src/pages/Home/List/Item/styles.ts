@@ -23,6 +23,21 @@ export const Item = styled.li<{ active: boolean }>`
     height: 20px;
     width: 20px;
   }
+
+  .icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    img:last-of-type {
+      transition: 0.3s transform;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
 `;
 
 export const ItemTitle = styled.h3`

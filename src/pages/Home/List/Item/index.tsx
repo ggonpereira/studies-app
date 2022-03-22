@@ -1,28 +1,49 @@
 import { Item, ItemTitle } from './styles';
-import CheckMark from '../../../../assets/check-mark.svg';
+import CheckMarkIcon from '../../../../assets/check-mark.svg';
+import DeleteIcon from '../../../../assets/trash-can.svg';
 
-import { Tasks } from '../../../../types/Tasks';
+import { Studies } from '../../../../types/Studies';
+import React from 'react';
 
 interface Props {
+  id: string;
   title: string;
   time: string;
-  currentTask: Tasks | null;
-  handleChangeTask: (task: Tasks) => void;
+  currentStudy: Studies | null;
+  handleChangeStudy: (task: Studies) => void;
+  handleDeleteStudy: (task: Studies) => void;
 }
 
-const ListItem = ({ title, time, currentTask, handleChangeTask }: Props) => {
-  const task: Tasks = {
+const ListItem = ({
+  id,
+  title,
+  time,
+  currentStudy,
+  handleChangeStudy,
+  handleDeleteStudy
+}: Props) => {
+  const task: Studies = {
+    id,
     title,
     time
   };
 
   return (
-    <Item active={title === currentTask?.title} onClick={() => handleChangeTask(task)}>
+    <Item active={title === currentStudy?.title} onClick={() => handleChangeStudy(task)}>
       <div>
         <ItemTitle as="h3">{title}</ItemTitle>
         <span>{time}</span>
       </div>
-      {title === currentTask?.title && <img src={CheckMark} />}
+      <div className="icons">
+        {title === currentStudy?.title && <img src={CheckMarkIcon} />}
+        <img
+          src={DeleteIcon}
+          onClick={(e: React.FormEvent) => {
+            e.stopPropagation();
+            handleDeleteStudy(task);
+          }}
+        />
+      </div>
     </Item>
   );
 };

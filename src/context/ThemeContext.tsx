@@ -31,8 +31,6 @@ export default function ThemeContextProvider({ children }: Props) {
     return themes[theme] || themes.light;
   }, [theme]);
 
-  console.info(theme);
-
   function handleToggleTheme() {
     setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'));
   }

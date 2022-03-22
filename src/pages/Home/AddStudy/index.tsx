@@ -1,25 +1,49 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import Button from '../../../components/Button';
 import { Typography } from '../../../components/Typography/styles';
 import { Form, Container, Input } from './styles';
+import { Studies } from '../../../types/Studies';
 
-const AddStudy = () => {
-  const handleSubmit = (values: React.FormEvent) => {
-    values.preventDefault();
-    console.info(values);
+interface Props {
+  addNewStudy: React.Dispatch<React.SetStateAction<Studies[]>>;
+}
+
+const AddStudy = ({ addNewStudy }: Props) => {
+  const { register, handleSubmit } = useForm<Studies>();
+
+  const onSubmit = (data: Studies) => {
+    if (data) {
+      const storedStudies = localStorage.getItem('@studiesApp:Studies');
+      const newStudy = {
+        id: String(Math.random()).split('.')[1],
+        title: data.title,
+        time: data.time
+      };
+
+      if (storedStudies) {
+        const parsedData: Studies[] = JSON.parse(storedStudies);
+        parsedData.push(newStudy);
+
+        addNewStudy(parsedData);
+      } else {
+        addNewStudy([newStudy]);
+        localStorage.setItem('@studiesApp:Studies', JSON.stringify([newStudy]));
+      }
+    }
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Container>
         <div>
-          <label htmlFor="task">
+          <label htmlFor="title">
             <Typography>Add something new to study</Typography>
           </label>
           <Input
             type="text"
-            name="task"
-            id="task"
+            {...register('title')}
+            id="title"
             placeholder="What do you wanna study?"
             required
           />
@@ -31,7 +55,7 @@ const AddStudy = () => {
           <Input
             type="time"
             step="1"
-            name="time"
+            {...register('time')}
             id="time"
             min="00:00:00"
             max="01:30:00"
