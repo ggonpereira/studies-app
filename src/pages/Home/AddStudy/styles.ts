@@ -37,15 +37,22 @@ export const Container = styled.div`
   }
 `;
 
-export const Label = styled.label``;
-
 export const Input = styled.input`
   height: 100%;
   max-height: 42px;
   padding: 8px;
   font-size: 1.2em;
-  border: 2px solid #e0e0e0;
+  border: 2px solid ${(props) => props.theme.colors.text};
   border-radius: 5px;
-  color: #303332;
+  color: ${(props) => props.theme.colors.text};
   outline: none;
+  background-color: ${(props) => props.theme.colors.backgroundSecondary};
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.text};
+  }
+
+  &.darkTheme::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+  }
 `;

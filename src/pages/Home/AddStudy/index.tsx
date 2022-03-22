@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Button from '../../../components/Button';
 import { Typography } from '../../../components/Typography/styles';
 import { Form, Container, Input } from './styles';
 import { Studies } from '../../../types/Studies';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 interface Props {
   addNewStudy: React.Dispatch<React.SetStateAction<Studies[]>>;
@@ -11,6 +12,9 @@ interface Props {
 
 const AddStudy = ({ addNewStudy }: Props) => {
   const { register, handleSubmit } = useForm<Studies>();
+  const { selectedTheme } = useContext(ThemeContext);
+
+  console.info(selectedTheme);
 
   const onSubmit = (data: Studies) => {
     if (data) {
@@ -60,6 +64,7 @@ const AddStudy = ({ addNewStudy }: Props) => {
             min="00:00:00"
             max="99:59:59"
             required
+            className={selectedTheme === 'dark' ? 'darkTheme' : undefined}
           />
         </div>
       </Container>
