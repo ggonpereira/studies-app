@@ -13,31 +13,42 @@ interface Props {
 const StartStudy = ({ endTask }: Props) => {
   const { currentStudy } = useContext(ApplicationContext);
 
-  const [timerRunning, setTimerRunning] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
+
+  let countdownTimeout: number;
 
   useEffect(() => {
     if (currentStudy?.time) {
       const currentTimeInSeconds = timeToSeconds(currentStudy.time);
       setTime(currentTimeInSeconds);
     }
+
+    if (isActive) {
+      setIsActive(false);
+      window.clearTimeout(countdownTimeout);
+    }
   }, [currentStudy]);
 
-  const handleChangeTime = (counter = 0) => {
-    if (timerRunning) return;
+  useEffect(() => {
+    if (isActive && time <= 0) return endTask();
 
-    setTimerRunning(true);
+    if (time > 0 && isActive) {
+      countdownTimeout = window.setTimeout(() => {
+        setTime(time - 1);
+      }, 1000);
+    }
+  }, [time, isActive]);
 
-    setTimeout(() => {
-      if (counter > 0) {
-        setTime(counter - 1);
-        return handleChangeTime(counter - 1);
-      }
-
-      setTimerRunning(false);
-      endTask();
-    }, 1000);
-  };
+  function handleStartCountdown() {
+    if (isActive) {
+      setIsActive(false);
+      setTime(time);
+      window.clearTimeout(countdownTimeout);
+    } else {
+      setIsActive(true);
+    }
+  }
 
   return (
     <Container>
@@ -45,7 +56,7 @@ const StartStudy = ({ endTask }: Props) => {
 
       <Clock time={time} />
 
-      <Button type="button" onClick={() => handleChangeTime(time)}>
+      <Button type="button" onClick={handleStartCountdown}>
         Start
       </Button>
     </Container>
