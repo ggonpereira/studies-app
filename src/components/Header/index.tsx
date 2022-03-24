@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const { onToggleTheme, selectedTheme } = useContext(ThemeContext);
 
   return (
-    <Container>
+    <Container data-testid="headerContainer">
       <div>
         <Typography color="#303332" noMargin>
           Studies App

@@ -9,18 +9,18 @@ export const Item = styled.li`
   padding: 7px 10px;
   border-radius: 7px;
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.backgroundSecondary};
-  color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props?.theme?.colors?.backgroundSecondary};
+  color: ${(props) => props?.theme?.colors?.text};
   box-shadow: 3px 3px 8px 0px rgba(87, 87, 87, 0.171);
 
   &.active {
-    background-color: ${(props) => props.theme.colors.secondary};
-    color: ${(props) => props.theme.colors.text};
+    background-color: ${(props) => props?.theme?.colors?.secondary};
+    color: ${(props) => props?.theme?.colors?.text};
   }
 
   &.concluded {
-    background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.background};
+    background-color: ${(props) => props?.theme?.colors?.primary};
+    color: ${(props) => props?.theme?.colors?.background};
   }
 
   div span {

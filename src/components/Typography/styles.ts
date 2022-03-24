@@ -8,7 +8,7 @@ export const Typography = styled.h3<{
 }>`
   font-size: 1.3em;
   margin-bottom: ${(props) => (props.noMargin ? '0' : '5px')};
-  color: ${(props) => props.color ?? props.theme.colors.text};
+  color: ${(props) => props.color ?? props?.theme?.colors?.text};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'none')};
   font-weight: ${(props) => (props.bold ? 'bold' : 500)};
 `;

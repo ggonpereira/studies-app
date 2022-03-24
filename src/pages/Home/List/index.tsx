@@ -46,12 +46,16 @@ const List = ({ studies, setStudies }: Props) => {
     <ListStyled>
       {studies.length <= 0 ? (
         <>
-          <Typography textAlign="center">Nothing here yet 😢</Typography>
-          <Typography textAlign="center">Add something to study right now!</Typography>
+          <Typography data-testid="emptyTitle" textAlign="center">
+            Nothing here yet 😢
+          </Typography>
+          <Typography data-testid="emptySubTitle" textAlign="center">
+            Add something to study right now!
+          </Typography>
         </>
       ) : (
         <>
-          <Typography as="h2" textAlign="center" bold noMargin>
+          <Typography data-testid="title" as="h2" textAlign="center" bold noMargin>
             Studies of the day
           </Typography>
           <Menu>

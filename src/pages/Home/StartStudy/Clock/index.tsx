@@ -16,7 +16,7 @@ const Clock = ({ time }: Props) => {
   }, [time]);
 
   return (
-    <Container>
+    <Container data-testid="clockContainer">
       <Timer>{minutes[0]}</Timer>
       <Timer>{minutes[1]}</Timer>
       <Separator>:</Separator>

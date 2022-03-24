@@ -4,7 +4,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   flex: 3;
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props?.theme?.colors?.secondary};
   padding: 15px;
   border-radius: 7px;
   box-shadow: 3px 3px 8px 0px rgba(87, 87, 87, 0.171);
@@ -42,14 +42,14 @@ export const Input = styled.input`
   max-height: 42px;
   padding: 8px;
   font-size: 1.2em;
-  border: 2px solid ${(props) => props.theme.colors.text};
+  border: 2px solid ${(props) => props?.theme?.colors?.text};
   border-radius: 5px;
-  color: ${(props) => props.theme.colors.text};
+  color: ${(props) => props?.theme?.colors?.text};
   outline: none;
-  background-color: ${(props) => props.theme.colors.backgroundSecondary};
+  background-color: ${(props) => props?.theme?.colors?.backgroundSecondary};
 
   &::placeholder {
-    color: ${(props) => props.theme.colors.text};
+    color: ${(props) => props?.theme?.colors?.text};
   }
 
   &.darkTheme::-webkit-calendar-picker-indicator {

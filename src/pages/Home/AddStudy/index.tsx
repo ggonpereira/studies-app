@@ -40,7 +40,7 @@ const AddStudy = ({ addNewStudy }: Props) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)} data-testid="form">
       <Container>
         <div>
           <label htmlFor="title">

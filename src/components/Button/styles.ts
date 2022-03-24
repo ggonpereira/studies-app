@@ -5,7 +5,7 @@ export const ButtonStyled = styled.button`
   max-width: 200px;
   width: 100%;
   border-radius: 7px;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props?.theme?.colors?.primary};
   border: 0;
   cursor: pointer;
   height: 42px;
