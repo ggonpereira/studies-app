@@ -51,7 +51,7 @@ const StartStudy = ({ endTask }: Props) => {
   }
 
   return (
-    <Container>
+    <Container data-testid="startStudyContainer">
       <Typography>Choose a card and start the timer</Typography>
 
       <Clock time={time} />

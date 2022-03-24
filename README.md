@@ -11,7 +11,7 @@
 
 <h2>About 📝</h2>
 
-<p align="center">A project created using TypeScript, Styled Components, ContextAPI and ReactJS following the Alura lessons. In this application you'll be able to add to-do tasks and add a timer for conclude the task! 👊🏼</p>
+<p align="center">A project created using TypeScript, Styled Components, ContextAPI, React Testing Library and ReactJS following the Alura lessons. In this application you'll be able to add to-do tasks and add a timer for conclude the task! 👊🏼</p>
 
 ---
 
@@ -21,12 +21,14 @@
 - [React](https://pt-br.reactjs.org/)
 - [Styled Components](https://styled-components.com/)
 - [ContextAPI](https://pt-br.reactjs.org/docs/context.html)
+- [Jest](https://jestjs.io/pt-BR/)
+- [React Testing Library](https://testing-library.com/)
 
 ---
 
 <h2>Learning 📚</h2>
 
-<p align="center">It was a really nice project to develop. I could train and study more about React and TypeScript, also how to implement a toggle theme functionality using ContextAPI, good practices using Styled Components and a lot more. 🙌🏼</p>
+<p align="center">It was a really nice project to develop. I could train and study more about React and TypeScript, also how to implement a toggle theme functionality using ContextAPI, good practices using Styled Components, implement unity tests and a lot more. 🙌🏼</p>
 
 ---
 

@@ -17,11 +17,11 @@ const Clock = ({ time }: Props) => {
 
   return (
     <Container data-testid="clockContainer">
-      <Timer>{minutes[0]}</Timer>
-      <Timer>{minutes[1]}</Timer>
+      <Timer data-testid="minutesUnity">{minutes[0]}</Timer>
+      <Timer data-testid="minutesTen">{minutes[1]}</Timer>
       <Separator>:</Separator>
-      <Timer>{seconds[0]}</Timer>
-      <Timer>{seconds[1]}</Timer>
+      <Timer data-testid="secondsUnity">{seconds[0]}</Timer>
+      <Timer data-testid="secondsTen">{seconds[1]}</Timer>
     </Container>
   );
 };
