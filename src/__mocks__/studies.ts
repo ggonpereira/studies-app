@@ -1,6 +1,6 @@
-import { Studies } from '../types/Studies';
+import { Studies } from '../types/studies';
 
-export const itemMocks: Studies[] = [
+export const studiesMock: Studies[] = [
   {
     id: '1',
     title: 'Item Mock 1',

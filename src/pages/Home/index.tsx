@@ -5,7 +5,7 @@ import StartStudy from './StartStudy';
 
 import { Container } from './styles';
 import { ApplicationContext } from '../../context/ApplicationContext';
-import { Studies } from '../../types/Studies';
+import { Studies } from '../../types/studies';
 
 const Home: React.FC = () => {
   const { currentStudy, setCurrentStudy } = useContext(ApplicationContext);

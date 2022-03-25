@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import Clock from './index';
-import '@testing-library/jest-dom/extend-expect';
 
 describe('test button component', () => {
   it('should render in the document', () => {

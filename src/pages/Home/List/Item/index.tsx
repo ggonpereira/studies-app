@@ -2,7 +2,7 @@ import { Item, ItemTitle } from './styles';
 import CheckMarkIcon from '../../../../assets/check-mark.svg';
 import DeleteIcon from '../../../../assets/trash-can.svg';
 
-import { Studies } from '../../../../types/Studies';
+import { Studies } from '../../../../types/studies';
 import React, { useContext } from 'react';
 import { ApplicationContext } from '../../../../context/ApplicationContext';
 
@@ -42,6 +42,7 @@ const ListItem = ({
       <div className="icons">
         {isConcluded && <img src={CheckMarkIcon} data-testid="checkMarkIcon" />}
         <img
+          data-testid="deleteButton"
           src={DeleteIcon}
           onClick={(e: React.FormEvent) => {
             e.stopPropagation();

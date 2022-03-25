@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import Header from './index';
-import '@testing-library/jest-dom/extend-expect';
+
 import ThemeContextProvider from '../../context/ThemeContext';
 
 describe('test header component', () => {

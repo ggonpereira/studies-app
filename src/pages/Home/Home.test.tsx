@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, cleanup } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+
 import App from '../../App';
 
 describe('test home page', () => {

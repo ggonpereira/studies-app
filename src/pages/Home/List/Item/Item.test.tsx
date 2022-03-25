@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import { itemMocks } from '../../../../__mocks__/item';
+import { studiesMock } from '../../../../__mocks__/studies';
 import Item from './index';
-import '@testing-library/jest-dom/extend-expect';
+
 import { ApplicationContext } from '../../../../context/ApplicationContext';
 
 describe('item component test', () => {
@@ -11,9 +11,9 @@ describe('item component test', () => {
 
   it('should load study title', () => {
     render(
-      <Item handleChangeStudy={mockFunction} handleDeleteStudy={mockFunction} {...itemMocks[1]} />
+      <Item handleChangeStudy={mockFunction} handleDeleteStudy={mockFunction} {...studiesMock[1]} />
     );
-    const itemTitle = screen.getByText(itemMocks[1].title);
+    const itemTitle = screen.getByText(studiesMock[1].title);
 
     expect(itemTitle).toBeInTheDocument();
   });
@@ -21,8 +21,12 @@ describe('item component test', () => {
   it('should have the active class if the study is active', () => {
     render(
       <ApplicationContext.Provider
-        value={{ currentStudy: itemMocks[1], setCurrentStudy: mockFunction }}>
-        <Item handleChangeStudy={mockFunction} handleDeleteStudy={mockFunction} {...itemMocks[1]} />
+        value={{ currentStudy: studiesMock[1], setCurrentStudy: mockFunction }}>
+        <Item
+          handleChangeStudy={mockFunction}
+          handleDeleteStudy={mockFunction}
+          {...studiesMock[1]}
+        />
       </ApplicationContext.Provider>
     );
 
@@ -33,7 +37,7 @@ describe('item component test', () => {
 
   it('should have the concluded class if the study is concluded', () => {
     render(
-      <Item handleChangeStudy={mockFunction} handleDeleteStudy={mockFunction} {...itemMocks[2]} />
+      <Item handleChangeStudy={mockFunction} handleDeleteStudy={mockFunction} {...studiesMock[2]} />
     );
 
     const item = screen.getByTestId('item');
@@ -43,7 +47,7 @@ describe('item component test', () => {
 
   it('should have the checkMark icon if the study is concluded', () => {
     render(
-      <Item handleChangeStudy={mockFunction} handleDeleteStudy={mockFunction} {...itemMocks[2]} />
+      <Item handleChangeStudy={mockFunction} handleDeleteStudy={mockFunction} {...studiesMock[2]} />
     );
 
     const checkMarkIcon = screen.getByTestId('checkMarkIcon');

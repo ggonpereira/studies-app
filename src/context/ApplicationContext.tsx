@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { Studies } from '../types/Studies';
+import { Studies } from '../types/studies';
 
 export interface ApplicationContext {
   currentStudy: Studies | null;

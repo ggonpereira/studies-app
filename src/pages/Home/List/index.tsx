@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { Typography } from '../../../components/Typography/styles';
-import { Studies } from '../../../types/Studies';
+import { Studies } from '../../../types/studies';
 
 import { ListStyled, Menu } from './styles';
 import ListItem from './Item';
@@ -46,12 +46,8 @@ const List = ({ studies, setStudies }: Props) => {
     <ListStyled>
       {studies.length <= 0 ? (
         <>
-          <Typography data-testid="emptyTitle" textAlign="center">
-            Nothing here yet 😢
-          </Typography>
-          <Typography data-testid="emptySubTitle" textAlign="center">
-            Add something to study right now!
-          </Typography>
+          <Typography textAlign="center">Nothing here yet 😢</Typography>
+          <Typography textAlign="center">Add something to study right now!</Typography>
         </>
       ) : (
         <>
@@ -61,6 +57,7 @@ const List = ({ studies, setStudies }: Props) => {
           <Menu>
             {studies.map((task, index) => (
               <ListItem
+                data-testid="listItem"
                 key={`${task.title}${index}`}
                 handleChangeStudy={handleChangeStudy}
                 handleDeleteStudy={handleDeleteStudy}

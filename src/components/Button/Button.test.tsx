@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 import Button from './index';
-import '@testing-library/jest-dom/extend-expect';
 
 describe('test button component', () => {
   it('should be in the document', () => {
