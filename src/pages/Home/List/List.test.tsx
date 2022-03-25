@@ -1,8 +1,8 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import List from './index';
 import { studiesMock } from '../../../__mocks__/studies';
 import ApplicationContextProvider from '../../../context/ApplicationContext';
-import { wait } from '@testing-library/user-event/dist/utils';
+import React from 'react';
 
 describe('list component testing', () => {
   const setMockStudies = jest.fn();
@@ -33,18 +33,24 @@ describe('list component testing', () => {
     expect(listItems).toHaveLength(studiesMock.length);
   });
 
-  it('should remove one studie when clicking the button', () => {
-    render(
-      <ApplicationContextProvider>
-        <List studies={studiesMock} setStudies={setMockStudies} />
-      </ApplicationContextProvider>
-    );
+  it('should remove one study when clicking the button', () => {
+    const Wrapper = () => {
+      const [studies, setStudies] = React.useState(studiesMock);
+
+      return (
+        <ApplicationContextProvider>
+          <List studies={studies} setStudies={setStudies} />
+        </ApplicationContextProvider>
+      );
+    };
+
+    render(<Wrapper />);
 
     expect(screen.getAllByTestId('item')).toHaveLength(studiesMock.length);
 
     const deleteButton = screen.getAllByTestId('deleteButton')[0];
     fireEvent.click(deleteButton);
 
-    // expect(screen.getAllByTestId('item')).toHaveLength(studiesMock.length);
+    expect(screen.getAllByTestId('item')).toHaveLength(studiesMock.length - 1);
   });
 });
