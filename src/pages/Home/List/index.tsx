@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { Typography } from '../../../components/Typography/styles';
-import { Studies } from '../../../types/studies';
+import { Studies } from '../../../types/Studies';
 
 import { ListStyled, Menu } from './styles';
 import ListItem from './Item';

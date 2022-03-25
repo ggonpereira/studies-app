@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import Button from '../../../components/Button';
 import { Typography } from '../../../components/Typography/styles';
 import { Form, Container, Input } from './styles';
-import { Studies } from '../../../types/studies';
+import { Studies } from '../../../types/Studies';
 import { ThemeContext } from '../../../context/ThemeContext';
 
 interface Props {

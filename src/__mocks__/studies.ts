@@ -1,4 +1,4 @@
-import { Studies } from '../types/studies';
+import { Studies } from '../types/Studies';
 
 export const studiesMock: Studies[] = [
   {

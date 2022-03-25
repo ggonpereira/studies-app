@@ -2,7 +2,7 @@ import { Item, ItemTitle } from './styles';
 import CheckMarkIcon from '../../../../assets/check-mark.svg';
 import DeleteIcon from '../../../../assets/trash-can.svg';
 
-import { Studies } from '../../../../types/studies';
+import { Studies } from '../../../../types/Studies';
 import React, { useContext } from 'react';
 import { ApplicationContext } from '../../../../context/ApplicationContext';
 
