@@ -8,7 +8,7 @@ import ApplicationContextProvider from './context/ApplicationContext';
 const App = () => (
   <ThemeContextProvider>
     <ApplicationContextProvider>
-      <div className="App">
+      <div data-testid="mainDiv" className="App">
         <Header />
 
         <GlobalStyle />
